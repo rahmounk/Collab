@@ -1,128 +1,261 @@
-//? Initilisation des données nécéssaires
+//! LIVE SHARE FOR CLASS EXERCISE
 
-const reviews = [
+//Our series data here
+const data = [
     {
-      id: 1,
-      name: "susan smith",
-      job: "web developer",
-      img:
-        "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883334/person-1_rfzshl.jpg",
-      text:
-        "I'm baby meggings twee health goth +1. Bicycle rights tumeric chartreuse before they sold out chambray pop-up. Shaman humblebrag pickled coloring book salvia hoodie, cold-pressed four dollar toast everyday carry",
+    id : 1,
+    title :"Lupin", 
+    img :"https://m.media-amazon.com/images/M/MV5BNzRlNGUzMmEtYTg0Ni00N2U2LTg4YWEtNDdlNmMwYjBlZDQ0XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UY1200_CR90,0,630,1200_AL_.jpg",
+    seasons :2,
+    episodes :10,
+    duration :56,
+    synopsis :"Il y a 25 ans, la vie du jeune Assane Diop est bouleversée lorsque son père meurt après avoir été accusé d'un crime qu'il n'a pas commis. Aujourd’hui, Assane va s'inspirer de son héros, Arsène Lupin - Gentleman Cambrioleur, pour le venger…",
+    },
+    
+    {
+    id : 2,
+    title :"Game of Thrones", 
+    img :"https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2019%2F04%2Fgot_cover.jpg&q=85",
+    seasons :8,
+    episodes :12,
+    duration :57,
+    synopsis :"Game of Thrones est un Américain fantastique drame série télévisée créée par David Benioff et DB Weiss pour HBO . Il s'agit d'une adaptation de A Song of Ice and Fire , une série de romans fantastiques de George RR Martin , dont le premier est A Game of Thrones . L'émission a été tournée au Royaume-Uni, au Canada, en Croatie , en Islande , à Malte , au Maroc et en Espagne. Il a été créé sur HBO aux États-Unis le 17 avril 2011 et s'est terminé le 19 mai 2019, avec 73 épisodes diffusés sur huit saisons.Situé sur les continents fictifs de Westeros et Essos , Game of Thrones a une grande distribution d'ensemble et suit plusieurs arcs d'histoire tout au long de la série. Un arc majeur concerne le trône de fer des sept royaumes de Westeros et suit un réseau d'alliances et de conflits entre les nobles dynasties, soit en lice pour revendiquer le trône, soit en luttant pour son indépendance. Un autre se concentre sur le dernier descendant de la dynastie dirigeante déchue du royaume, qui a été exilé à Essos et prépare un retour au trône. Un troisième arc d'histoire suit le Night's Watch, un ordre militaire défendant le royaume contre les menaces du Nord.Game of Thrones a attiré un nombre record de téléspectateurs sur HBO et dispose d'une base de fans large, active et internationale. Les critiques ont loué la série pour son jeu d'acteur, ses personnages complexes, son histoire, sa portée et ses valeurs de production, bien que son utilisation fréquente de la nudité et de la violence (y compris la violence sexuelle) ait fait l'objet de critiques. La dernière saison a reçu un contrecoup critique important pour sa durée réduite et ses décisions créatives, beaucoup la considérant comme une conclusion décevante. La série a reçu 59 Primetime Emmy Awards , le plus par une série dramatique, y compris la série dramatique exceptionnelle en 2015, 2016, 2018 et 2019. Ses autres prix et nominations comprennent trois prix Hugo pour la meilleure présentation dramatique, un Peabody Award et cinq nominations pour le Golden Globe Award de la meilleure série télévisée - Drame . De nombreux critiques et publications ont désigné l'émission comme l'une des meilleures séries télévisées de tous les temps.",
+    },
+    
+    {
+    id : 3,
+    title :"Narcos Mexico", 
+    img :"https://nrjantilles.com/wp-content/uploads/Narcos-Mexico-saison-3.jpg",
+    seasons :2,
+    episodes :10,
+    duration :45,
+    synopsis :"Elle raconte l'ascension du cartel de Guadalajara dans les années 1980 au travers de Miguel Ángel Félix Gallardo (Diego Luna), en narrant comment ce dernier a réussi à en faire un des grands empires de la drogue."
+    },
+    
+    {
+    id : 4,
+    title :"Shingeki no Kyojin",
+    img :"https://www.animint.com/encyclopedie/base/image/s/shingeki-kyojin-s3.jpg",
+    seasons :4,
+    episodes :24,
+    duration :25,
+    synopsis :"Il y a  107 ans les titans ont presque exterminé la race humaine. Ces Titans mesurent principalement une diziane de mètres et ils se nourrissent d'humains. Les humains ayant survécus à cette extermination ont construit une cité fortifiée avec des murs d'enceinte de 50 mètres de haut pour pouvoir se protéger. (allez lire ou voir ça)",    
+    },
+
+    {
+    id : 5,
+    title :"Bleach", 
+    img :"https://www.nautiljon.com/images/anime/00/42/bleach_24.jpg?1609231031",
+    seasons :16,
+    episodes :25,
+    duration :25,
+    synopsis :"Kurosaki Ichigo, un étudiant de quinze ans aux cheveux orange qui aime la bagarre (comme son père) a la particularité de voir les fantômes ainsi que de pouvoir les toucher. Cela l'amène à rencontrer Kuchiki Rukia, un Shinigami (dieu de la mort) qui combat un Hollow. Le déroulement du combat amène Kuchiki à donner ses pouvoirs à Ichigo qui deviens alors lui même un Shinigami. C'est maintenant à son tour de protéger la ville des Hollows.",        
+    },
+
+    {
+    id : 6,
+    title : "Sons Of Anarchy", 
+    img :"https://fr.web.img3.acsta.net/pictures/18/11/13/12/24/3932240.jpg",
+    seasons :7,
+    episodes :15,
+    duration :45,
+    synopsis :"Cette série dramatique retrace la vie d'un club soudé de motards hors-la-loi opérant à Charming, ville fictive de la Central Valley, en Californie. Elle met en vedette Charlie Hunnam dans le rôle de Jackson 'Jax' Teller, vice-président, puis président du club. Il commence bientôt à s'interroger sur le club et lui-même.",        
+    },
+    
+    {
+    id : 7,
+    title :"PsychoPass", 
+    img :"https://www.nautiljon.com/images/anime/00/39/psycho-pass_2293.jpg",
+    seasons :3,
+    episodes :22,
+    duration :25,
+    synopsis :"L'histoire se déroule dans un futur où il est désormais possible de quantifier l'état mental d'une personne, ceci est désigné par le terme Psycho-Pass. Grâce à ce système, il est possible de repérer les criminels en devenir. La Section d'Investigation Criminelle pour laquelle travaille Shinya Kogami est chargée d'appliquer les mesures lorsqu'un individu est jugé dangereux. Akane Tsunemori est une fraîche recrue qui intègre tout juste la section et qui se rendra vite compte que sur le terrain, les choses ne sont pas comme elle les a apprises.",        
     },
     {
-      id: 2,
-      name: "anna johnson",
-      job: "web designer",
-      img:
-        "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883409/person-2_np9x5l.jpg",
-      text:
-        "Helvetica artisan kinfolk thundercats lumbersexual blue bottle. Disrupt glossier gastropub deep v vice franzen hell of brooklyn twee enamel pin fashion axe.photo booth jean shorts artisan narwhal.",
+    id :8,
+    title :"Vikings" , 
+    img :"https://fr.web.img6.acsta.net/medias/nmedia/18/95/52/44/20457563.jpg",
+    seasons :6,
+    episodes :93,
+    duration :59,
+    synopsis :"Scandinavie, à la fin du 8ème siècle. Ragnar Lodbrok, un jeune guerrier viking, est avide d'aventures et de nouvelles conquêtes. Lassé des pillages sur les terres de l'Est, il se met en tête d'explorer l'Ouest par la mer. Malgré la réprobation de son chef, Haraldson, il se fie aux signes et à la volonté des dieux, en construisant une nouvelle génération de vaisseaux, plus légers et plus rapides...",        
     },
+
     {
-      id: 3,
-      name: "peter jones",
-      job: "intern",
-      img:
-        "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883417/person-3_ipa0mj.jpg",
-      text:
-        "Sriracha literally flexitarian irony, vape marfa unicorn. Glossier tattooed 8-bit, fixie waistcoat offal activated charcoal slow-carb marfa hell of pabst raclette post-ironic jianbing swag.",
+    id : 9,
+    title : "El Chapo", 
+    img : "https://upload.wikimedia.org/wikipedia/en/8/8e/El_Chapo_Netflix_poster.jpg",
+    seasons :3,
+    episodes :10,
+    duration :45,
+    synopsis : "Basée fortement sur des faits réels, elle retrace la vie du baron de la drogue mexicain Joaquin Guzman Lorea dit 'El Chapo' et mets en lumière l'influence des puissants cartels et du narco-trafic dans la vie politique et sociale mexicaine.",        
     },
+    
     {
-      id: 4,
-      name: "bill anderson",
-      job: "the boss",
-      img:
-        "https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883423/person-4_t9nxjt.jpg",
-      text:
-        "Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ",
+    id : 10,
+    title : "La disparition de Soledad", 
+    img : "https://www.netflix-news.com/wp-content/uploads/2020/10/AAAABaqOVhSy89wumiU8uNdEe1mHXUkTSrVkMTYD9jVxGX5ynuyle4QVKrc61Z4qVHZQeLMaY_PsFavkNXnToN3t_0vt2Vaygxemc1-acszrPxRxWw79o5HnKH4HCyuWKg.jpg",
+    seasons : 1,
+    episodes : 11,
+    duration : 50,
+    synopsis : "Antonio se fait volontairement incarcérer à La Brecha, la pire des prisons colombiennes, bien décidé à retrouver l'homme qui a enlevé sa fille des années plus tôt.",        
     },
-  ];
+    
+    {
+    id :11,
+    title : "SteinsGate", 
+    img :"https://media.senscritique.com/media/000017727744/source_big/Steins_Gate_0.jpg",
+    seasons :2,
+    episodes :24,
+    duration :25,
+    synopsis :"Dans un quartier d'Otaku à Akihabara, un groupe d'amis modifient leurs microondes de manière à en faire un dispositif qui leur permet d'envoyer des messages écrits vers le passé.Une organisation, CERN, a mené différentes recherches à propos des voyages temporels.À présent, le groupe, ayant effectué plusieurs expériences diverses, doit absolument éviter de se faire capturer par cette organisation qui les perturbe en les traquant...",        
+    },
+    
+    {
+    id : 12,
+    title :"Ratched", 
+    img :"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQoeYKk2UqySLgo_9ShnUNUTzMj0aR6obIlrFqa7JD7azXO7XbQ",
+    seasons :2,
+    episodes :9,
+    duration :50,
+    synopsis :"Ratched est une série dramatique à suspense qui raconte l'histoire d'origine de l'infirmière d'asile Mildred Ratched. En 1947, Mildred arrive dans le nord de la Californie pour chercher un emploi dans un hôpital psychiatrique de premier plan où de nouvelles expériences troublantes ont commencé sur l'esprit humain. En mission clandestine, Mildred se présente comme l'image parfaite de ce qu'une infirmière dévouée devrait être, mais les roues tournent toujours et alors qu'elle commence à infiltrer le système de santé mentale et ceux qui le composent, l'extérieur élégant de Mildred cache une obscurité croissante qui a longtemps brûlé à l'intérieur, révélant que de vrais monstres sont faits, pas nés. ",        
+    },
 
-//? Initialisation des sélecteurs
-const nextBtn = document.querySelector('.next-btn');
-const prevBtn = document.querySelector('.prev-btn');
-const randomBtn = document.querySelector('.random-btn');
+    {
+    id : 13,
+    title :"Kaamelott", 
+    img :"https://exkaalibur.com/wp-content/uploads/2020/11/2577964.jpg",
+    seasons : 6,
+    episodes : 50,
+    duration : 5,
+    synopsis :"Kaamelott est une série télévisée française humoristique et dramatique de fantasy historique créée par Alexandre Astier, Alain Kappauf et Jean-Yves Robin et diffusée entre le 3 janvier 2005 et le 31 octobre 2009 sur M6.L'origine du nom de la série est la cité de Camelot, avec une orthographe et une graphie particulières faisant ressortir les initiales AA de l'auteur, et les deux T finaux forçant l'homophonie avec camelote.De plus en plus populaire depuis 2006, la série s’inspire de la légende arthurienne et apporte une vision décalée de la légende en présentant un roi Arthur qui peine à être à la hauteur de la tâche que les dieux lui ont confiée. Entouré de chevaliers de la Table ronde passablement incompétents, confronté à la chute de l’Empire romain et aux incessantes incursions barbares, il doit encore trouver le Saint Graal.",        
+    },
 
-const imageContainer = document.querySelector('#person-img');
-const author = document.querySelector('#author');
-const job = document.querySelector('#job');
-const comment = document.querySelector('#comment');
+    {
+    id : 14,
+    title : "Notre Planete", 
+    img : "https://images-na.ssl-images-amazon.com/images/I/71+5VGRWxdL.jpg",
+    seasons : 1,
+    episodes : 8,
+    duration : 49,
+    synopsis : "Embarquez pour un voyage inoubliable au cœur des paysages les plus spectaculaires au monde.",        
+    },
+    
+    {
+    id : 15,
+    title :"Rick Et Morty", 
+    img : "https://images-na.ssl-images-amazon.com/images/I/612tCJzDy0L._AC_.jpg",
+    seasons : 4,
+    episodes : 10,
+    duration : 22,
+    synopsis :"Rick et Morty (Rick and Morty) est une série d'animation pour adultes américaine créée par Justin Roiland et Dan Harmon, diffusée depuis le 2 décembre 2013 sur Cartoon Network, dans la tranche fin de soirée Adult Swim. La série suit les mésaventures de Rick Sanchez, un scientifique cynique et fantasque, et de son petit-fils, Morty Smith, perturbé et facilement influençable, qui partagent leur temps entre une vie domestique et des aventures interdimensionnelles. Roiland double les personnages principaux, tandis que Chris Parnell, Spencer Grammer et Sarah Chalke prêtent leur voix au reste de la famille.",        
+    },
+            
+];
 
+const cards = document.querySelector('.card');
 
-//? Setup la review de départ
-let currentReview = 0;
+/**
+ * HTML&CSS : Cadres avec image,titre de la série,nombre de saisons,nom d'épisodes
+ * JS : Classe série qui contient les infos et qu'on va pouvoir afficher
+ */
 
-function showPerson(person){
-    //? Création d'une variable qui pointe vers l'index des reviews
-    const review = reviews[person];
+ class Serie {
+   constructor(title,img,seasons,episodes,duration,synopsis,){
+    this.title = title;
+    this.img = img;
+    this.seasons = seasons;
+    this.episodes = episodes;
+    this.duration = duration;
+    this.synopsis = synopsis;
 
-    console.log(review);
+}
 
-    //? Utilisation de setters pour remplacer les valeurs HTML avec celles des objets dans reviews
-    imageContainer.src =  review.img;
-    author.innerText = review.name;
-    job.innerText = review.job;
-    comment.innerText = review.text;
-};
+    summary(){
+        return `${summary}...`;
+    }
 
-//? Création d'un évènement qui se lance au chargement du DOM
+//    Duration 
+// tps cumulé de tous les épisodes
+// durée de chaque épisode * nbr d'épisodes * nbr de saisons &  aditionner la durée de toutes les séries
+   serieDuration(){
+    const oneSerieDuration = this.duration * this.episodes * this.seasons;
+    const hours = Math.floor(oneSerieDuration / 60);
+    const minutes = oneSerieDuration%60;
+    return `${hours}h${minutes}`;
+}
+ }
+
+//  action au chargement de la page
 window.addEventListener("DOMContentLoaded",()=>{
-    //? Affiche la review en fonction de l'index
-    showPerson(currentReview);
-    //? Initialisation d'un intervalle de 10s pour afficher la prochaine review
-    setInterval(()=>{
-      currentReview++;
-      //? Création d'une condition qui vérifie que l'incrémentation n'a pas fait l'index currentReview dépasser la taille de l'Array
-      if(currentReview > reviews.length - 1){
-        //? Si l'incrémentation à fait currentReview dépasser la taille de l'Array, on remplace sa valeur par 0 (pour retourner au début de l'array)
-        currentReview = 0;
-      }
-      showPerson(currentReview);
+    for(let serie in data){
+      let i = 0;
+      let aSerie = new Serie (data[serie].title,data[serie].img,data[serie].seasons,data[serie].episodes,data[serie].duration,data[serie].synopsis);
 
-    },10000)
-});
+      console.log(aSerie);
 
-//? Création d'un nouvel évènement 'click' sur le bouton précédent
-prevBtn.addEventListener('click',()=>{
-    //? Décrémentation de currentReview pour accéder à l'index précédent
-    currentReview--;
+      const cardSerial= document.createElement('div');
+      cardSerial.id="case";
+      console.log(cardSerial);
+      
+      const serialName=document.createElement('h2');
+      serialName.id="title-serie";
+      serialName.innerText=aSerie.title;
+      cardSerial.appendChild(serialName);
+      console.log(serialName);
+  
+      const imgSerie=document.createElement('img');
+      imgSerie.id="image-serie";
+      imgSerie.src=aSerie.img;
+      cardSerial.appendChild(imgSerie);
+      console.log(imgSerie)
+  
+      const cardDetail= document.createElement('div');
+      cardDetail.id="details";
+      cardSerial.appendChild(cardDetail);
+      console.log(cardDetail)
+  
+      const nbSeason=document.createElement('p');
+      nbSeason.id="seasons";
+      nbSeason.innerText=aSerie.seasons;
+      cardDetail.appendChild(nbSeason);
+      console.log(nbSeason)
+  
+      const nbEpisode=document.createElement('p');
+      nbEpisode.id="episodes";
+      nbEpisode.innerText=aSerie.episodes;
+      cardDetail.appendChild(nbEpisode);
+      console.log(nbEpisode)
+  
+      const epDuration=document.createElement('p');
+      nbEpisode.id="duration";
+      nbEpisode.innerText=aSerie.duration;
+      cardDetail.appendChild(epDuration);
+      console.log(epDuration)
+  
+      const synopsis = document.createElement('p');
+      nbSeason.id="synopsis";
+      nbSeason.innerText=aSerie.synopsis.substr(0,150);
+      cardSerial.appendChild(synopsis);
+      console.log(synopsis)
 
-    //? Création d'une condition qui vérifie que la décrémentation n'a pas rendu l'index négatif.
-    if(currentReview < 0){
-        //? Si la décrémentation rend l'index négatif, alors on remplace l'index par la valeur d'index de l'élément qui se situe à la fin de l'array.
-        currentReview = reviews.length - 1;
+      
+      bigContainer.appendChild(cardSerial);
+
     }
-    //? Affiche la review en fonction de l'index
-    showPerson(currentReview);
+
+
 });
 
-//? Création d'un nouvel évènement 'click' sur le bouton suivant
-nextBtn.addEventListener('click',()=>{
-    //? Incrémentation de currentReview pour accéder à l'index suivant
-    currentReview++;
-
-    //? Création d'une condition qui vérifie que l'incrémentation n'a pas fait l'index currentReview dépasser la taille de l'Array
-    if(currentReview > reviews.length - 1){
-        //? Si l'incrémentation à fait currentReview dépasser la taille de l'Array, on remplace sa valeur par 0 (pour retourner au début de l'array)
-        currentReview = 0;
-    }
-    //? Affiche la review en fonction de l'index
-    showPerson(currentReview);
-});
-
-//? Création d'un nouvel évènement 'click' sur le bouton randomBtn
-randomBtn.addEventListener("click",()=>{
-    //? Création d'une variable qui va contenir un nombre aléatoire entre 0 et la taille de l'array
-    newReview = Math.floor(Math.random()*reviews.length);
-
-    //? Création d'une boucle qui vérifie que tant que le nouveau nombre aléatoire contenu dans la variable est égal à l'index currentReview
-    while(currentReview === newReview){
-        //? Alors on choisit un nouveau nombre aléatoire
-        newReview = Math.floor(Math.random()*reviews.length);
-    }
-    //? On assigne ce nombre aléatoire a notre index pour exécuter la fonction qui permet d'afficher la review.
-    currentReview = newReview;
-    //? Affiche la review en fonction de l'index
-    showPerson(currentReview);
-});
+// Selection of #ID and .class 
+const containerCard = document.querySelector("#case");
+const bigContainer = document.querySelector("#card-container");
+const title = document.querySelector("#title-serie");
+const image = document.querySelector("#image-serie");
+const season = document.querySelector("#season")
+const episodeNumber = document.querySelector("#episode")
+const durationEpisode = document.querySelector("#duration");
+const synopsis = document.querySelector("#synopsis");
+const totalDuration = document.querySelector("#total-duration");
+ 
+ 

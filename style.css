@@ -15,117 +15,103 @@
     padding:0;
     box-sizing: border-box;
 }
+
+#navbar{
+    width: 30vw;
+    height:5vh;
+}
+
+#navbar> ul{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    margin-top: 5vh;
+
+}
 body{
-    color:black;
-    background-color:#afafaf;
+    color:white;
+    background-color:black;
+    width:100%;
 }
 
 body::-webkit-scrollbar{
     width:0.25rem;
 }
+#banner{
+    background-image: url( "https://www.natureauvol.com/sites/default/files/styles/image_de_page__1600x500_/public/page_presentation_special/ff_0.jpg?itok=vD5rdtFr");
+    height: 70vh;
+    opacity:0.7;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    flex-direction: column;
+    text-shadow: 10px 0px 30px rgb(28, 19, 109);
 
-body::-webkit-scrollbar-track{
 }
-body::-webkit-scrollbar-thumb{
-    background:#c5aa2f
+#case{
+    width: 200px;
+    height: 400px;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-around;
+    align-items: center;
+    border: solid 2px rgb(20, 70, 128);
+    box-shadow: 1px 3px 30px rgb(11, 37, 53);
+    padding:1em;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
+#case img{
+    height: 200px;
+    width: 200px;
+}
+#synopsis{
+    color:rgb(94, 94, 94);
+}
+#details >p{
+    color: grey
+}
+#title-serie{
+    font-size: 30px;
+    text-transform: uppercase;
+}
 main{
     margin-left: 5rem;
     padding: 1rem;
 }
 
-.navbar{
-    width:5rem;
-    height:100vh;
-    position: fixed;
-    background-color: var(--bg-primary);
-    transition: 0.5s;
-}
-
-.navbar-nav{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-}
-
-.nav-item{
-    width:100%;
-
-}
-
-.nav-item:last-child{
-    margin-top: auto;
-}
-
-.nav-link{
-    display:flex;
-    align-items:center;
-    height:5rem;
-    color:var(--text-primary);
-    text-decoration:none;
-    filter:grayscale(100%) opacity(0.7);
-    transition:var(--transition-speed);
-}
-.nav-link:hover{
-    filter:grayscale(0%) opacity(1);
-    transition:var(--transition-speed);
-    background:var(--bg-secondary);
-    color:var(--text-secondary);
-}
-
-.link-text{
-    display:none;
-    margin-left:1rem;
-}
-
-.nav-link svg{
-    max-width:2rem;
-    margin:0 1.5rem;
-}
-
-.navbar:hover{
-    width:16rem;
-}
-.navbar:hover .link-text{
-    display:block;
-}
-
-.fa-primary{
-    color:#f1d012;
-    transition:var(--transition-speed);
-}
-
-.logo {
-    font-weight:bold;
-    margin-bottom:1rem;
-    text-align: center;
-    color: var(--text-secondary);
-    font-size: 1.5rem;
-    letter-spacing:0.3ch;
-}
-
-.logo svg{
-    transform: rotate(0deg);
-    transition:1s ease-in-out;
-}
-
-.navbar:hover .logo svg{
-    transform: rotate(360deg);
-}
-
-.container{
+#container{
     display:flex;
     flex-direction: column;
     justify-content:center;
     align-items:center;
 }
+
+#team{
+    display: flex;
+    justify-content: space-around;
+    color: grey
+}
+#team> div> h3{
+    text-transform:uppercase;
+}
+#ramouka{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
 /* TEMPLATE DE LA SECTION CENTRALE TODO */
 
 #person-img{
     width:50%;
-    
+}
+
+#card-container{
+    display: flex;
+    justify-content: space-between;
 }
