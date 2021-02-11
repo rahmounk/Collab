@@ -1,6 +1,10 @@
 //! LIVE SHARE FOR CLASS EXERCISE
 
 //Our series data here
+//? Initialisation des données nécessaires à l'affichage des cartes
+// *** On a utilisé un array qui contient des objets avec les données relatives aux séries
+
+//! Pose un problème au niveau des imports de modules (Parce que c'est un array et pas un objet)
 const data = [
     {
     id : 1,
@@ -153,14 +157,15 @@ const data = [
             
 ];
 
+//? ???
 const cards = document.querySelector('.card');
 
-/**
- * HTML&CSS : Cadres avec image,titre de la série,nombre de saisons,nom d'épisodes
- * JS : Classe série qui contient les infos et qu'on va pouvoir afficher
- */
+//? Création d'une classe Serie qui allait contenir le prototype de toutes les séries
 
+
+//? 1.Déclaration de la classe Serie
  class Serie {
+     //? 2.Définition du constructor de la classe Serie, avec les infos nécessaires à sa création
    constructor(title,img,seasons,episodes,duration,synopsis,){
     this.title = title;
     this.img = img;
@@ -171,6 +176,7 @@ const cards = document.querySelector('.card');
 
 }
 
+    //? Création d'une méthode liée à la classe Serie qui sert à afficher un résumé du synopsis
     summary(){
         return `${summary}...`;
     }
@@ -178,16 +184,20 @@ const cards = document.querySelector('.card');
 //    Duration 
 // tps cumulé de tous les épisodes
 // durée de chaque épisode * nbr d'épisodes * nbr de saisons &  aditionner la durée de toutes les séries
+    //? Création d'une méthode liée à la classe Serie qui permet de calculer le nombre de temps nécessaire pour regarder la Serie au total.
    serieDuration(){
     const oneSerieDuration = this.duration * this.episodes * this.seasons;
     const hours = Math.floor(oneSerieDuration / 60);
     const minutes = oneSerieDuration%60;
     return `${hours}h${minutes}`;
 }
- }
+}
 
+//! Fin de la classe Serie
 //  action au chargement de la page
+//? Création d'un gestionnaire d'évènement lié au chargement du DOM
 window.addEventListener("DOMContentLoaded",()=>{
+    //? Une fois le DOM chargé, créer des objets de la classe Serie qui contiendront les infos sur la Serie à chaque tour de boucle. Le faire jusqu'a la fin du tableau
     for(let serie in data){
       let i = 0;
       let aSerie = new Serie (data[serie].title,data[serie].img,data[serie].seasons,data[serie].episodes,data[serie].duration,data[serie].synopsis);
@@ -198,11 +208,14 @@ window.addEventListener("DOMContentLoaded",()=>{
       cardSerial.id="case";
       console.log(cardSerial);
       
+      //? Création d'élément h2
       const serialName=document.createElement('h2');
+      //? Ajout d'un id "title-serie"
       serialName.id="title-serie";
+      //? Ajout de texte dans l'élément correspondant au titre contenu dans l'objet
       serialName.innerText=aSerie.title;
+      //? Insertion de cet élément dans la carte qui contient toutes les infos de la série
       cardSerial.appendChild(serialName);
-      console.log(serialName);
   
       const imgSerie=document.createElement('img');
       imgSerie.id="image-serie";
